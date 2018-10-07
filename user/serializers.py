@@ -19,6 +19,9 @@ class MovieSerializer(serializers.ModelSerializer):
 
 
 class User_has_MovieSerializer(serializers.ModelSerializer):
+    User = UserSerializer(read_only=True)
+    Movie = MovieSerializer(read_only=True)
+
     class Meta:
         model = User_has_Movie
         fields = (
