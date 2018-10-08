@@ -14,7 +14,7 @@ class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = (
-            'id', 'name', 'duration', 'description'
+            'id', 'name', 'duration', 'description', 'date', 'photo'
         )
 
 
@@ -25,5 +25,5 @@ class User_has_MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = User_has_Movie
         fields = (
-            'id', 'User', 'Movie', 'price'
+            'id', 'User', 'Movie', 'price', 'date'
         )

@@ -5,6 +5,8 @@ class Movie(models.Model):
     name = models.CharField('Nombre de la pelicula', max_length=30, blank=True, null=True)
     duration = models.FloatField("Duracion de la pelicula")
     description = models.TextField("Descripcion de la pelicula", max_length=300)
+    date = models.CharField("Estreno de la pelicula", max_length=30, blank=True, null=True)
+    photo = models.ImageField("Foto de la pelicula", upload_to='movies', blank=True, null=True)
 
     def __str__(self):
         return "{} - {}".format(self.id, self.name)
@@ -27,6 +29,7 @@ class User_has_Movie(models.Model):
     Movie = models.ForeignKey(Movie, related_name='User_has_Movie', blank=True, null=True,
                               on_delete=models.SET_NULL)
     price = models.IntegerField('Precio de la entrada', default=10)
+    date = models.CharField('Fecha de la compra', max_length=30, blank=True, null=True)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.id, self.User.last_name, self.Movie.name)
