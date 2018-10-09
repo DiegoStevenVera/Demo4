@@ -25,7 +25,7 @@ SECRET_KEY = 'f86v&&k#&p*b=_a9(1q$vwd@7ti_d8lacv)3y$g=0(gnl_43_!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [] #206.189.184.16
+ALLOWED_HOSTS = ['206.189.184.16'] #206.189.184.16
 
 
 # Application definition
@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -72,6 +75,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Demo4.wsgi.application'
 
+#CORS
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -79,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'demo4',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'USER': 'db_user',
+        'PASSWORD': 'pass',
         'HOST': 'localhost',
         'PORT': '',
     }
