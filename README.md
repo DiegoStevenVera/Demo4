@@ -12,10 +12,10 @@
   - http://206.189.184.16/api/v1/movies/1/
 
 - Para ver las compras
-  - http://206.189.184.16/api/v1/userhasmovie/
+  - http://206.189.184.16/api/v1/compras/
   
 - Para ver el detalle de una compra
-  - http://206.189.184.16/api/v1/userhasmovie/1/
+  - http://206.189.184.16/api/v1/compras/1/
   
 - Para ver los admins
   - http://206.189.184.16/api/v1/administrator/

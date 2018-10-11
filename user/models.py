@@ -30,6 +30,9 @@ class User_has_Movie(models.Model):
                               on_delete=models.SET_NULL)
     price = models.IntegerField('Precio de la entrada', default=10)
     date = models.CharField('Fecha de la compra', max_length=30, blank=True, null=True)
+    time = models.CharField('Hora de la función', max_length=10, blank=True, null=True)
+    place = models.CharField('Lugar de la función', max_length=30, blank=True, null=True)
+    room_cinema = models.CharField('Sala de la función', max_length=10, blank=True, null=True)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.id, self.User.last_name, self.Movie.name)
