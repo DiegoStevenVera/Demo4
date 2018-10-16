@@ -1,6 +1,9 @@
-from rest_framework import generics
+from rest_framework import generics, status
 from .models import *
 from .serializers import *
+from rest_framework import generics, status, filters
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 
 class UserListView(generics.ListCreateAPIView):
@@ -25,9 +28,9 @@ class MovieDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class User_has_MovieListView(generics.ListCreateAPIView):
     queryset = User_has_Movie.objects.all()
-    serializer_class = User_has_MovieSerializer
+    serializer_class = User_has_MovieSerializerCreated
 
 
 class User_has_MovieDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User_has_Movie.objects.all()
-    serializer_class = User_has_MovieSerializer
+    serializer_class = User_has_MovieRUD
