@@ -9,5 +9,6 @@ urlpatterns = [
     path("movies/<int:pk>/", view=MovieDetailView.as_view(), name="detalle de una pelicula"),
     path("sale/", view=User_has_MovieListView.as_view(), name="Listar las compras"),
     path("csale/", view=User_has_MovieCreate.as_view(), name="Crear compra"),
+    path("saleuser/<int:pk>/", view=SaleUserView.as_view(), name="Compras de un user"),
     path("sale/<int:pk>/", view=User_has_MovieDetailView.as_view(), name="listar y detalle de una compra")
 ]

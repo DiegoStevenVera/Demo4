@@ -38,3 +38,21 @@ class User_has_MovieCreate(generics.CreateAPIView):
 class User_has_MovieDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User_has_Movie.objects.all()
     serializer_class = User_has_MovieRUD
+
+
+class SaleUserView(generics.ListAPIView):
+    serializer_class = User_has_MovieRUD
+
+    def get_user_sale(self):
+        try:
+            user = User.objects.get(DNI=self.kwargs['pk'])
+        except User.DoesNotExist:
+            user = None
+        return user
+
+    def get_queryset(self):
+        try:
+            sale = User_has_Movie.objects.filter(User=self.get_user_sale())
+        except User_has_Movie.DoesNotExist:
+            sale = None
+        return sale
