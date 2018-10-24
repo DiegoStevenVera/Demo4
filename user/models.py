@@ -2,7 +2,7 @@ from django.db import models
 
 
 class User(models.Model):
-    DNI = models.IntegerField('DNI', primary_key=True)
+    DNI = models.IntegerField('DNI', unique=True)
     email = models.EmailField('Correo electrónico', blank=False, null=False)
     password = models.CharField('Contraseña', max_length=20)
     name = models.CharField('Nombre', max_length=20, blank=True, null=True)
