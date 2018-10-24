@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'mysql_cymysql',
         'NAME': 'demo4',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'pass',
         'HOST': 'localhost',
         'PORT': '3310',
     }
